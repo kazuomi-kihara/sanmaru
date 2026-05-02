@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>炉端とワイン 炭火Dining</title>
+  <style>
+    :root {
+      --bg: #f7f0e6;
+      --paper: #fffaf2;
+      --ink: #2b2118;
+      --sub: #6e5b48;
+      --accent: #b34a32;
+      --gold: #c89a4b;
+      --line: rgba(43, 33, 24, 0.18);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Yu Gothic", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.8;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 10;
+      background: rgba(35, 25, 18, 0.86);
+      color: #fff;
+      backdrop-filter: blur(10px);
+    }
+
+    .nav {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .logo {
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      font-size: 18px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 22px;
+      font-size: 14px;
+    }
+
+    .nav-cta {
+      padding: 8px 16px;
+      border: 1px solid rgba(255,255,255,0.7);
+      border-radius: 999px;
+      font-size: 14px;
+    }
+
+    .hero {
+      min-height: 92vh;
+      display: grid;
+      place-items: center;
+      padding: 120px 20px 80px;
+      background:
+        linear-gradient(rgba(26, 18, 12, 0.55), rgba(26, 18, 12, 0.65)),
+        url("https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=1600&q=80") center/cover;
+      color: #fff;
+      text-align: center;
+    }
+
+    .hero-inner {
+      max-width: 900px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 18px;
+      padding: 6px 16px;
+      border: 1px solid rgba(255,255,255,0.55);
+      border-radius: 999px;
+      font-size: 14px;
+      letter-spacing: 0.14em;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(42px, 8vw, 86px);
+      line-height: 1.12;
+      letter-spacing: 0.08em;
+      font-family: "Yu Mincho", "Hiragino Mincho ProN", serif;
+      text-shadow: 0 8px 28px rgba(0,0,0,0.35);
+    }
+
+    .hero p {
+      margin: 24px auto 0;
+      max-width: 700px;
+      font-size: clamp(16px, 2.2vw, 21px);
+    }
+
+    .hero-buttons {
+      margin-top: 36px;
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 13px 26px;
+      border-radius: 999px;
+      font-weight: 700;
+      transition: 0.2s ease;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .btn-secondary {
+      border: 1px solid rgba(255,255,255,0.75);
+      color: #fff;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      opacity: 0.9;
+    }
+
+    section {
+      padding: 88px 20px;
+    }
+
+    .container {
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .section-title span {
+      color: var(--accent);
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      font-size: 13px;
+    }
+
+    .section-title h2 {
+      margin: 8px 0 0;
+      font-size: clamp(30px, 4vw, 48px);
+      font-family: "Yu Mincho", "Hiragino Mincho ProN", serif;
+      letter-spacing: 0.08em;
+    }
+
+    .concept {
+      background: var(--paper);
+    }
+
+    .concept-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 42px;
+      align-items: center;
+    }
+
+    .concept-card {
+      padding: 36px;
+      background: #fff;
+      border-radius: 24px;
+      box-shadow: 0 18px 40px rgba(67, 45, 25, 0.1);
+    }
+
+    .concept-card h3 {
+      margin-top: 0;
+      font-size: 28px;
+      font-family: "Yu Mincho", "Hiragino Mincho ProN", serif;
+    }
+
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    .photo-grid img {
+      width: 100%;
+      height: 210px;
+      object-fit: cover;
+      border-radius: 20px;
+      box-shadow: 0 14px 28px rgba(67, 45, 25, 0.16);
+    }
+
+    .photo-grid img:nth-child(1) {
+      grid-column: span 2;
+      height: 260px;
+    }
+
+    .menu-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 36px;
+    }
+
+    .tab {
+      padding: 9px 18px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: #fff;
+      color: var(--sub);
+      font-weight: 700;
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .menu-card {
+      background: #fff;
+      border-radius: 22px;
+      overflow: hidden;
+      box-shadow: 0 16px 34px rgba(67, 45, 25, 0.11);
+      border: 1px solid rgba(43, 33, 24, 0.06);
+    }
+
+    .menu-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .menu-body {
+      padding: 20px;
+    }
+
+    .menu-body h3 {
+      margin: 0 0 8px;
+      font-size: 20px;
+    }
+
+    .menu-body p {
+      margin: 0 0 14px;
+      color: var(--sub);
+      font-size: 14px;
+    }
+
+    .price {
+      color: var(--accent);
+      font-weight: 800;
+      font-size: 18px;
+    }
+
+    .menu-list {
+      margin-top: 38px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 26px;
+    }
+
+    .list-box {
+      background: var(--paper);
+      border-radius: 22px;
+      padding: 28px;
+      border: 1px solid var(--line);
+    }
+
+    .list-box h3 {
+      margin: 0 0 14px;
+      font-family: "Yu Mincho", "Hiragino Mincho ProN", serif;
+      font-size: 26px;
+    }
+
+    .item {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 10px 0;
+      border-bottom: 1px dashed var(--line);
+    }
+
+    .item:last-child {
+      border-bottom: none;
+    }
+
+    .wine {
+      background:
+        linear-gradient(rgba(48, 29, 23, 0.9), rgba(48, 29, 23, 0.9)),
+        url("https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=1600&q=80") center/cover;
+      color: #fff;
+    }
+
+    .wine .section-title span,
+    .wine .price {
+      color: #f1c875;
+    }
+
+    .wine-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .wine-card {
+      border: 1px solid rgba(255,255,255,0.18);
+      background: rgba(255,255,255,0.08);
+      border-radius: 22px;
+      padding: 26px;
+      backdrop-filter: blur(8px);
+    }
+
+    .wine-card h3 {
+      margin-top: 0;
+      font-size: 22px;
+    }
+
+    .wine-card p {
+      color: rgba(255,255,255,0.78);
+    }
+
+    .info {
+      background: var(--paper);
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 36px;
+    }
+
+    .info-card {
+      background: #fff;
+      border-radius: 24px;
+      padding: 32px;
+      box-shadow: 0 18px 40px rgba(67, 45, 25, 0.1);
+    }
+
+    .info-row {
+      padding: 14px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .info-row strong {
+      display: block;
+      color: var(--accent);
+      margin-bottom: 4px;
+    }
+
+    .map-placeholder {
+      min-height: 360px;
+      border-radius: 24px;
+      background: linear-gradient(135deg, #d7c7af, #f1e5d2);
+      display: grid;
+      place-items: center;
+      color: var(--sub);
+      text-align: center;
+      padding: 30px;
+      border: 1px solid var(--line);
+    }
+
+    footer {
+      background: #201811;
+      color: rgba(255,255,255,0.72);
+      text-align: center;
+      padding: 34px 20px;
+      font-size: 14px;
+    }
+
+    @media (max-width: 900px) {
+      .nav-links {
+        display: none;
+      }
+
+      .concept-grid,
+      .info-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .menu-grid,
+      .wine-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .nav {
+        padding: 12px 16px;
+      }
+
+      .nav-cta {
+        display: none;
+      }
+
+      section {
+        padding: 64px 16px;
+      }
+
+      .menu-grid,
+      .wine-grid,
+      .menu-list {
+        grid-template-columns: 1fr;
+      }
+
+      .photo-grid img,
+      .photo-grid img:nth-child(1) {
+        height: 190px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav">
+      <a href="#top" class="logo">炉端とワイン 炭火Dining</a>
+      <nav class="nav-links">
+        <a href="#concept">こだわり</a>
+        <a href="#menu">お料理</a>
+        <a href="#wine">ワイン</a>
+        <a href="#access">店舗情報</a>
+      </nav>
+      <a href="tel:0982-00-0000" class="nav-cta">ご予約はこちら</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-inner">
+        <span class="eyebrow">ROBATA / SEAFOOD / WINE</span>
+        <h1>炭火で焼き上げる<br />香ばしい一皿を。</h1>
+        <p>魚炉端、肉炉端、野菜炉端。白ワイン・赤ワインに合う料理まで、肩ひじ張らずに楽しめる大人の炭火ダイニング。</p>
+        <div class="hero-buttons">
+          <a href="#menu" class="btn btn-primary">メニューを見る</a>
+          <a href="#access" class="btn btn-secondary">店舗情報を見る</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="concept" class="concept">
+      <div class="container concept-grid">
+        <div class="concept-card">
+          <div class="section-title" style="text-align:left; margin-bottom:20px;">
+            <span>CONCEPT</span>
+            <h2>炉端焼きとワインを、もっと気軽に。</h2>
+          </div>
+          <p>脂ののった焼き魚、香ばしく焼き上げた肉串、季節の野菜炉端。素材のうまみを炭火で引き出し、ワインやお酒と一緒に楽しめるメニューを揃えました。</p>
+          <p>仕事帰りの一杯、友人との食事、週末のゆっくりした夜に。落ち着いた空間で、できたての料理をお楽しみください。</p>
+        </div>
+        <div class="photo-grid">
+          <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=900&q=80" alt="炭火料理" />
+          <img src="https://images.unsplash.com/photo-1551218808-94e220e084d2?auto=format&fit=crop&w=600&q=80" alt="料理" />
+          <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=600&q=80" alt="店内" />
+        </div>
+      </div>
+    </section>
+
+    <section id="menu">
+      <div class="container">
+        <div class="section-title">
+          <span>FOOD MENU</span>
+          <h2>おすすめ料理</h2>
+        </div>
+
+        <div class="menu-tabs">
+          <span class="tab">魚炉端</span>
+          <span class="tab">肉炉端</span>
+          <span class="tab">野菜炉端</span>
+          <span class="tab">ワインに合う一皿</span>
+        </div>
+
+        <div class="menu-grid">
+          <article class="menu-card">
+            <img src="https://images.unsplash.com/photo-1598515213692-b6b697f5f4a0?auto=format&fit=crop&w=700&q=80" alt="浜焼き鯖" />
+            <div class="menu-body">
+              <h3>名物！浜焼き鯖</h3>
+              <p>香ばしく焼き上げた看板メニュー。まずはこれから。</p>
+              <div class="price">1,480円</div>
+            </div>
+          </article>
+
+          <article class="menu-card">
+            <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092?auto=format&fit=crop&w=700&q=80" alt="肉炉端" />
+            <div class="menu-body">
+              <h3>山梨直送！信玄どりもも塩焼き</h3>
+              <p>炭火でじっくり。外は香ばしく、中はジューシーに。</p>
+              <div class="price">おすすめ</div>
+            </div>
+          </article>
+
+          <article class="menu-card">
+            <img src="https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?auto=format&fit=crop&w=700&q=80" alt="カスレ風" />
+            <div class="menu-body">
+              <h3>骨付きチキンのカスレ風</h3>
+              <p>赤ワインにもよく合う、食べごたえのある一皿。</p>
+              <div class="price">赤ワインに合う</div>
+            </div>
+          </article>
+        </div>
+
+        <div class="menu-list">
+          <div class="list-box">
+            <h3>魚炉端</h3>
+            <div class="item"><span>名物！浜焼き鯖</span><strong>1,480円</strong></div>
+            <div class="item"><span>サワラ</span><strong>980円</strong></div>
+            <div class="item"><span>マグロヒレ肉焼き</span><strong>730円</strong></div>
+            <div class="item"><span>鮭ハラス焼き</span><strong>1,480円</strong></div>
+            <div class="item"><span>イカ西京焼き</span><strong>2,760円</strong></div>
+            <div class="item"><span>穴子一本干し</span><strong>1,380円</strong></div>
+          </div>
+
+          <div class="list-box">
+            <h3>炉端焼き</h3>
+            <div class="item"><span>とんこ椎茸</span><strong>420円</strong></div>
+            <div class="item"><span>赤茄子</span><strong>900円</strong></div>
+            <div class="item"><span>れんこん ペペロンチーノ塩</span><strong>530円</strong></div>
+            <div class="item"><span>まこも茸</span><strong>680円</strong></div>
+            <div class="item"><span>北海道産 極太とうもろこし</span><strong>おすすめ</strong></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="wine" class="wine">
+      <div class="container">
+        <div class="section-title">
+          <span>WINE & PAIRING</span>
+          <h2>料理に合うワイン</h2>
+        </div>
+
+        <div class="wine-grid">
+          <div class="wine-card">
+            <h3>白ワインに合う</h3>
+            <p>シーフードときのこのアヒージョ、スモークタンとクレソンのサラダなど、軽やかに楽しめる一皿。</p>
+            <div class="price">グラス 490円〜</div>
+          </div>
+          <div class="wine-card">
+            <h3>赤ワインに合う</h3>
+            <p>生ハム盛り合わせ、牛すじマッシュポテト、柔らか牛バラの赤ワイン煮込みなど。</p>
+            <div class="price">ボトル 2,900円〜</div>
+          </div>
+          <div class="wine-card">
+            <h3>スパークリング</h3>
+            <p>乾杯や食事のはじまりに。華やかな香りとすっきりした味わいを楽しめます。</p>
+            <div class="price">Half / Full</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="access" class="info">
+      <div class="container">
+        <div class="section-title">
+          <span>SHOP INFO</span>
+          <h2>店舗情報</h2>
+        </div>
+
+        <div class="info-grid">
+          <div class="info-card">
+            <div class="info-row">
+              <strong>店名</strong>
+              炉端とワイン 炭火Dining
+            </div>
+            <div class="info-row">
+              <strong>住所</strong>
+              宮崎県〇〇市〇〇町 1-2-3
+            </div>
+            <div class="info-row">
+              <strong>営業時間</strong>
+              17:00〜23:00（L.O. 22:30）
+            </div>
+            <div class="info-row">
+              <strong>定休日</strong>
+              毎週月曜日
+            </div>
+            <div class="info-row">
+              <strong>電話番号</strong>
+              0982-00-0000
+            </div>
+            <div style="margin-top:24px;">
+              <a href="tel:0982-00-0000" class="btn btn-primary">電話で予約する</a>
+            </div>
+          </div>
+
+          <div class="map-placeholder">
+            <div>
+              <strong>Google Map埋め込みエリア</strong><br />
+              実際の住所が決まったら、Googleマップの埋め込みコードに差し替えます。
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 炉端とワイン 炭火Dining. All Rights Reserved.</p>
+  </footer>
+</body>
+</html>
