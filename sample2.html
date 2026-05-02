@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>明るい雰囲気の飲食店ホームページ</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Yu Gothic", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+      color: #3b2f2f;
+      background: #fffaf0;
+      line-height: 1.8;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .page {
+      overflow: hidden;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 20px rgba(255, 167, 38, 0.18);
+    }
+
+    .header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 14px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: #f57c00;
+      letter-spacing: 0.04em;
+    }
+
+    .logo span {
+      display: block;
+      font-size: 0.72rem;
+      color: #8d6e63;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 22px;
+      list-style: none;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #6d4c41;
+    }
+
+    nav a:hover {
+      color: #f57c00;
+    }
+
+    .hero {
+      min-height: 100vh;
+      padding: 120px 20px 70px;
+      background:
+        radial-gradient(circle at top left, rgba(255, 224, 130, 0.75), transparent 38%),
+        radial-gradient(circle at bottom right, rgba(255, 171, 145, 0.55), transparent 34%),
+        linear-gradient(135deg, #fff8e1 0%, #fff3e0 55%, #ffffff 100%);
+      display: flex;
+      align-items: center;
+    }
+
+    .hero-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 46px;
+      align-items: center;
+    }
+
+    .hero-label {
+      display: inline-block;
+      margin-bottom: 18px;
+      padding: 7px 16px;
+      background: #fff;
+      color: #f57c00;
+      border: 2px solid #ffcc80;
+      border-radius: 999px;
+      font-weight: 800;
+      font-size: 0.9rem;
+      box-shadow: 0 8px 18px rgba(255, 152, 0, 0.16);
+    }
+
+    .hero h1 {
+      font-size: clamp(2.3rem, 6vw, 4.8rem);
+      line-height: 1.18;
+      color: #4e342e;
+      margin-bottom: 22px;
+    }
+
+    .hero h1 strong {
+      color: #f57c00;
+    }
+
+    .hero-text {
+      font-size: 1.08rem;
+      color: #5d4037;
+      margin-bottom: 30px;
+      max-width: 620px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 28px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 170px;
+      padding: 14px 22px;
+      border-radius: 999px;
+      font-weight: 800;
+      transition: 0.25s;
+    }
+
+    .btn-main {
+      background: #ff9800;
+      color: #fff;
+      box-shadow: 0 12px 24px rgba(255, 152, 0, 0.28);
+    }
+
+    .btn-sub {
+      background: #fff;
+      color: #f57c00;
+      border: 2px solid #ffcc80;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+    }
+
+    .hero-info {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      color: #6d4c41;
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    .hero-info span {
+      background: rgba(255,255,255,0.75);
+      padding: 8px 13px;
+      border-radius: 999px;
+    }
+
+    .hero-card {
+      position: relative;
+      background: #fff;
+      border-radius: 36px;
+      padding: 18px;
+      box-shadow: 0 24px 60px rgba(141, 110, 99, 0.22);
+      transform: rotate(2deg);
+    }
+
+    .hero-photo {
+      height: 430px;
+      border-radius: 28px;
+      background:
+        linear-gradient(rgba(255, 183, 77, 0.18), rgba(255, 112, 67, 0.18)),
+        url("images/main.jpg") center/cover no-repeat;
+      display: flex;
+      align-items: end;
+      padding: 22px;
+      color: #fff;
+      overflow: hidden;
+    }
+
+    .photo-message {
+      width: 100%;
+      background: rgba(255, 152, 0, 0.88);
+      border-radius: 22px;
+      padding: 18px;
+      font-weight: 800;
+      font-size: 1.15rem;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.12);
+    }
+
+    .float-badge {
+      position: absolute;
+      right: -16px;
+      top: 32px;
+      width: 112px;
+      height: 112px;
+      border-radius: 50%;
+      background: #ffeb3b;
+      color: #5d4037;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-weight: 900;
+      line-height: 1.35;
+      box-shadow: 0 12px 25px rgba(251, 192, 45, 0.35);
+      transform: rotate(10deg);
+    }
+
+    section {
+      padding: 86px 20px;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 42px;
+    }
+
+    .section-title .en {
+      color: #ff9800;
+      font-weight: 900;
+      letter-spacing: 0.16em;
+      font-size: 0.8rem;
+    }
+
+    .section-title h2 {
+      font-size: clamp(1.8rem, 4vw, 2.7rem);
+      color: #4e342e;
+      margin-top: 6px;
+    }
+
+    .section-title p {
+      color: #795548;
+      margin-top: 10px;
+    }
+
+    .about {
+      background: #fff;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .about-card {
+      background: #fffaf0;
+      border: 2px solid #ffe0b2;
+      border-radius: 26px;
+      padding: 28px;
+      text-align: center;
+      box-shadow: 0 12px 30px rgba(255, 183, 77, 0.14);
+    }
+
+    .about-icon {
+      font-size: 2.6rem;
+      margin-bottom: 12px;
+    }
+
+    .about-card h3 {
+      color: #e65100;
+      margin-bottom: 10px;
+      font-size: 1.22rem;
+    }
+
+    .menu {
+      background: linear-gradient(180deg, #fff8e1 0%, #ffffff 100%);
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .menu-card {
+      background: #fff;
+      border-radius: 30px;
+      overflow: hidden;
+      box-shadow: 0 14px 32px rgba(141, 110, 99, 0.15);
+      transition: 0.25s;
+    }
+
+    .menu-card:hover {
+      transform: translateY(-6px);
+    }
+
+    .menu-photo {
+      height: 190px;
+      background: #ffe0b2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
+    }
+
+    .menu-content {
+      padding: 22px;
+    }
+
+    .menu-content h3 {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      color: #4e342e;
+      font-size: 1.2rem;
+      margin-bottom: 8px;
+    }
+
+    .price {
+      color: #f57c00;
+      white-space: nowrap;
+    }
+
+    .menu-content p {
+      color: #795548;
+      font-size: 0.95rem;
+    }
+
+    .takeout {
+      background: #fffbf2;
+    }
+
+    .takeout-box {
+      background: #fff;
+      border-radius: 34px;
+      padding: 36px;
+      box-shadow: 0 18px 44px rgba(141, 110, 99, 0.14);
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 34px;
+      align-items: center;
+    }
+
+    .takeout-message {
+      background: #ff9800;
+      color: #fff;
+      border-radius: 28px;
+      padding: 32px;
+    }
+
+    .takeout-message h2 {
+      font-size: 2rem;
+      margin-bottom: 12px;
+    }
+
+    .takeout-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    .takeout-item {
+      background: #fff8e1;
+      border: 2px dashed #ffcc80;
+      border-radius: 20px;
+      padding: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      color: #5d4037;
+    }
+
+    .info {
+      background: #fff;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .info-card {
+      background: #fffaf0;
+      border-radius: 28px;
+      padding: 30px;
+      border: 2px solid #ffe0b2;
+    }
+
+    .info-card h3 {
+      color: #e65100;
+      margin-bottom: 18px;
+      font-size: 1.35rem;
+    }
+
+    .shop-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .shop-table th,
+    .shop-table td {
+      padding: 13px 0;
+      border-bottom: 1px solid #ffe0b2;
+      vertical-align: top;
+    }
+
+    .shop-table th {
+      width: 95px;
+      color: #8d6e63;
+      text-align: left;
+    }
+
+    .map-dummy {
+      height: 100%;
+      min-height: 260px;
+      border-radius: 24px;
+      background:
+        linear-gradient(135deg, rgba(255, 204, 128, 0.75), rgba(255, 236, 179, 0.9)),
+        repeating-linear-gradient(45deg, transparent 0, transparent 12px, rgba(255,255,255,0.45) 12px, rgba(255,255,255,0.45) 24px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #6d4c41;
+      font-weight: 900;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .contact {
+      background: linear-gradient(135deg, #ffb74d 0%, #ff9800 100%);
+      color: #fff;
+      text-align: center;
+    }
+
+    .contact h2 {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      margin-bottom: 12px;
+    }
+
+    .contact p {
+      margin-bottom: 24px;
+      font-weight: 700;
+    }
+
+    .tel {
+      display: inline-block;
+      background: #fff;
+      color: #f57c00;
+      border-radius: 999px;
+      padding: 16px 30px;
+      font-size: 1.45rem;
+      font-weight: 900;
+      box-shadow: 0 12px 26px rgba(0,0,0,0.12);
+    }
+
+    footer {
+      background: #4e342e;
+      color: #fff8e1;
+      text-align: center;
+      padding: 24px 20px;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 900px) {
+      nav {
+        display: none;
+      }
+
+      .hero-inner,
+      .takeout-box,
+      .info-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 100px;
+      }
+
+      .hero-card {
+        transform: none;
+      }
+
+      .hero-photo {
+        height: 340px;
+      }
+
+      .about-grid,
+      .menu-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .header-inner {
+        padding: 12px 16px;
+      }
+
+      .logo {
+        font-size: 1.08rem;
+      }
+
+      section {
+        padding: 64px 16px;
+      }
+
+      .hero {
+        padding: 96px 16px 58px;
+      }
+
+      .hero h1 {
+        font-size: 2.35rem;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .takeout-list {
+        grid-template-columns: 1fr;
+      }
+
+      .takeout-box,
+      .info-card {
+        padding: 24px;
+      }
+
+      .float-badge {
+        right: 10px;
+        top: -18px;
+        width: 92px;
+        height: 92px;
+        font-size: 0.85rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="header-inner">
+        <a href="#" class="logo">
+          Restaurant Sample
+          <span>LOCAL FOOD & SMILE</span>
+        </a>
+        <nav>
+          <ul>
+            <li><a href="#about">お店のこと</a></li>
+            <li><a href="#menu">メニュー</a></li>
+            <li><a href="#takeout">テイクアウト</a></li>
+            <li><a href="#info">店舗情報</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-inner">
+          <div class="hero-copy">
+            <div class="hero-label">家族でも、ひとりでも、気軽に寄れるお店</div>
+            <h1>今日のごはんを、<br><strong>ちょっと楽しく。</strong></h1>
+            <p class="hero-text">
+              あたたかい料理と、明るい雰囲気でお迎えします。ランチ、夕食、テイクアウトまで、地域の皆さまに気軽に使っていただけるお店です。
+            </p>
+            <div class="hero-buttons">
+              <a href="#menu" class="btn btn-main">メニューを見る</a>
+              <a href="#info" class="btn btn-sub">お店の場所を見る</a>
+            </div>
+            <div class="hero-info">
+              <span>ランチ営業</span>
+              <span>テイクアウトOK</span>
+              <span>駐車場あり</span>
+            </div>
+          </div>
+
+          <div class="hero-card">
+            <div class="float-badge">できたて<br>ごはん</div>
+            <div class="hero-photo">
+              <div class="photo-message">写真を入れると、ここが一気にお店らしくなります</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="about">
+        <div class="container">
+          <div class="section-title">
+            <div class="en">ABOUT</div>
+            <h2>気軽で、明るく、入りやすいお店</h2>
+            <p>初めての方にも伝わりやすいように、お店の良さを3つに分けて紹介します。</p>
+          </div>
+
+          <div class="about-grid">
+            <div class="about-card">
+              <div class="about-icon">☀️</div>
+              <h3>明るい雰囲気</h3>
+              <p>やわらかい色合いと親しみやすい雰囲気で、家族連れにも入りやすい印象に。</p>
+            </div>
+            <div class="about-card">
+              <div class="about-icon">🍽️</div>
+              <h3>しっかりごはん</h3>
+              <p>定番メニューをわかりやすく見せて、「今日はここにしよう」と思ってもらえる構成。</p>
+            </div>
+            <div class="about-card">
+              <div class="about-icon">🥡</div>
+              <h3>持ち帰り対応</h3>
+              <p>テイクアウト情報を目立たせることで、来店以外の利用にもつなげやすくします。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="menu" class="menu">
+        <div class="container">
+          <div class="section-title">
+            <div class="en">MENU</div>
+            <h2>おすすめメニュー</h2>
+            <p>写真がなくても仮表示できるように、絵文字アイコンで明るく見せています。</p>
+          </div>
+
+          <div class="menu-grid">
+            <article class="menu-card">
+              <div class="menu-photo">🍝</div>
+              <div class="menu-content">
+                <h3>あんかけ焼きそば <span class="price">¥1,000</span></h3>
+                <p>とろっとしたあんと麺の組み合わせが人気の一品です。</p>
+              </div>
+            </article>
+            <article class="menu-card">
+              <div class="menu-photo">🍗</div>
+              <div class="menu-content">
+                <h3>チキン南蛮 <span class="price">¥1,000</span></h3>
+                <p>宮崎らしさを感じられる、しっかり満足の定番メニュー。</p>
+              </div>
+            </article>
+            <article class="menu-card">
+              <div class="menu-photo">🍱</div>
+              <div class="menu-content">
+                <h3>お弁当 <span class="price">¥1,000</span></h3>
+                <p>お昼にも夕食にも使いやすい、持ち帰りに便利なメニュー。</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="takeout" class="takeout">
+        <div class="container">
+          <div class="takeout-box">
+            <div class="takeout-message">
+              <h2>テイクアウトできます</h2>
+              <p>
+                忙しい日や、ご自宅でゆっくり食べたい日にも。電話注文や店頭注文など、実際の運用に合わせて文言を調整できます。
+              </p>
+            </div>
+            <div class="takeout-list">
+              <div class="takeout-item"><span>🍝 あんかけ焼きそば</span><span>¥1,000</span></div>
+              <div class="takeout-item"><span>🍗 チキン南蛮</span><span>¥1,000</span></div>
+              <div class="takeout-item"><span>🍱 お弁当</span><span>¥1,000</span></div>
+              <div class="takeout-item"><span>🍚 ご飯</span><span>¥200</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="info" class="info">
+        <div class="container">
+          <div class="section-title">
+            <div class="en">SHOP INFO</div>
+            <h2>店舗情報</h2>
+            <p>営業時間・住所・電話番号など、来店前に知りたい情報をまとめます。</p>
+          </div>
+
+          <div class="info-grid">
+            <div class="info-card">
+              <h3>基本情報</h3>
+              <table class="shop-table">
+                <tr>
+                  <th>店名</th>
+                  <td>Restaurant Sample</td>
+                </tr>
+                <tr>
+                  <th>住所</th>
+                  <td>宮崎県〇〇市〇〇町 1-2-3</td>
+                </tr>
+                <tr>
+                  <th>営業時間</th>
+                  <td>11:00〜14:00 / 17:00〜20:00</td>
+                </tr>
+                <tr>
+                  <th>定休日</th>
+                  <td>月曜日</td>
+                </tr>
+                <tr>
+                  <th>電話</th>
+                  <td>0982-00-0000</td>
+                </tr>
+              </table>
+            </div>
+            <div class="info-card">
+              <div class="map-dummy">
+                ここにGoogleマップを<br>埋め込みできます
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="contact">
+        <div class="container">
+          <h2>ご来店・ご注文をお待ちしています</h2>
+          <p>電話番号や予約方法をわかりやすく置くことで、問い合わせにつなげます。</p>
+          <a href="tel:0982000000" class="tel">TEL 0982-00-0000</a>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; Restaurant Sample. All Rights Reserved.</p>
+    </footer>
+  </div>
+</body>
+</html>
