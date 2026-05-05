@@ -1,0 +1,776 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>お食事処 サンマール 門川｜ちゃんぽん・定食・お持ち帰り</title>
+  <meta name="description" content="お食事処 サンマール門川のホームページ。ちゃんぽん、チキン南蛮定食、あんかけ焼きそば、お持ち帰りメニューをご紹介します。">
+
+  <style>
+    :root {
+      --base: #f8f3e8;
+      --paper: #fffdf8;
+      --ink: #2f241c;
+      --brown: #f15a25;
+      --light-brown: #7a5638;
+      --orange: #d56b22;
+      --orange2: #f28c28;
+      --red: #d71920;
+      --line: #eadfce;
+      --green: #2f8f4e;
+      --shadow: 0 20px 50px rgba(58, 37, 22, .12);
+      --radius: 22px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: "Hiragino Mincho ProN", "Yu Mincho", "Yu Gothic", "Meiryo", serif;
+      color: var(--ink);
+      background: var(--base);
+      line-height: 1.85;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(255, 253, 248, .94);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(75, 45, 26, .12);
+    }
+
+    .header-inner {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      color: var(--brown);
+      font-weight: 900;
+      letter-spacing: .05em;
+      white-space: nowrap;
+    }
+
+    .logo-mark {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: var(--brown);
+      color: #fff;
+      font-size: 23px;
+      box-shadow: 0 10px 22px rgba(75, 45, 26, .18);
+    }
+
+    .logo small {
+      display: block;
+      margin-top: 1px;
+      font-size: 11px;
+      color: var(--orange);
+      letter-spacing: .22em;
+      font-family: "Yu Gothic", "Meiryo", sans-serif;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      font-family: "Yu Gothic", "Meiryo", sans-serif;
+      font-size: 14px;
+      font-weight: 800;
+      color: var(--brown);
+    }
+
+    .nav a {
+      padding: 8px 0;
+      border-bottom: 2px solid transparent;
+    }
+
+    .nav a:hover {
+      color: var(--orange);
+      border-bottom-color: var(--orange);
+    }
+
+    .order-button {
+      padding: 11px 18px !important;
+      border-radius: 999px;
+      background: var(--brown);
+      color: #fff !important;
+      border-bottom: none !important;
+      box-shadow: 0 10px 22px rgba(75, 45, 26, .18);
+    }
+
+    .hero {
+      background:
+        linear-gradient(90deg, rgba(248, 243, 232, .96) 0%, rgba(248, 243, 232, .78) 44%, rgba(248, 243, 232, .10) 100%),
+        url("assets/hero-food.jpg") center/cover no-repeat;
+      min-height: 680px;
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid rgba(75, 45, 26, .08);
+    }
+
+    .hero-inner {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 86px 0;
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 44px;
+      align-items: center;
+    }
+
+    .hero-copy {
+      width: min(620px, 100%);
+      background: rgba(255, 253, 248, .88);
+      border: 1px solid rgba(75, 45, 26, .12);
+      border-radius: 32px;
+      padding: clamp(28px, 5vw, 52px);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-photo-card {
+      border-radius: 34px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      border: 10px solid #fff;
+      transform: rotate(1.5deg);
+    }
+
+    .hero-photo-card img {
+      width: 100%;
+      height: 520px;
+      object-fit: cover;
+    }
+
+    .kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--orange);
+      font-family: "Yu Gothic", "Meiryo", sans-serif;
+      font-weight: 900;
+      letter-spacing: .15em;
+      font-size: 13px;
+      margin-bottom: 14px;
+    }
+
+    .kicker::before {
+      content: "";
+      width: 34px;
+      height: 1px;
+      background: var(--orange);
+    }
+
+    .hero h1 {
+      margin: 0 0 18px;
+      color: var(--brown);
+      font-size: clamp(38px, 6vw, 72px);
+      line-height: 1.12;
+      letter-spacing: .04em;
+    }
+
+    .hero h1 span { color: var(--red); }
+
+    .lead {
+      margin: 0 0 28px;
+      color: #503722;
+      font-size: clamp(16px, 2.2vw, 20px);
+      font-weight: 700;
+      font-family: "Yu Gothic", "Meiryo", sans-serif;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      font-family: "Yu Gothic", "Meiryo", sans-serif;
+    }
+
+    .btn {
+      min-height: 54px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 24px;
+      border-radius: 999px;
+      font-weight: 900;
+      transition: .2s ease;
+    }
+
+    .btn:hover { transform: translateY(-2px); }
+    .btn-main { background: var(--brown); color: #fff; }
+    .btn-sub { background: #fff; color: var(--brown); border: 2px solid var(--brown); }
+
+    .section {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 82px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 38px;
+    }
+
+    .section-title p {
+      margin: 0;
+      font-family: "Yu Gothic", "Meiryo", sans-serif;
+      color: var(--orange);
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: .22em;
+    }
+
+    .section-title h2 {
+      margin: 8px 0 0;
+      color: var(--brown);
+      font-size: clamp(30px, 4vw, 48px);
+      line-height: 1.25;
+      letter-spacing: .06em;
+    }
+
+    .concept {
+      background: var(--paper);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .concept-inner {
+      width: min(980px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 86px 0;
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 46px;
+      align-items: center;
+    }
+
+    .concept-photo {
+      border-radius: 32px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      border: 8px solid #fff;
+    }
+
+    .concept-text h2 {
+      margin: 0 0 20px;
+      color: var(--brown);
+      font-size: clamp(30px, 4vw, 48px);
+      line-height: 1.35;
+      letter-spacing: .07em;
+    }
+
+    .concept-text p {
+      margin: 0;
+      color: #563b27;
+      font-family: "Yu Gothic", "Meiryo", sans-serif;
+      font-weight: 700;
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .menu-card {
+      background: var(--paper);
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(75, 45, 26, .10);
+      transition: .22s ease;
+    }
+
+    .menu-card:hover { transform: translateY(-5px); }
+
+    .menu-photo {
+      aspect-ratio: 4 / 3;
+      background: #eee1ce;
+      overflow: hidden;
+    }
+
+    .menu-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .menu-body {
+      padding: 22px;
+      font-family: "Yu Gothic", "Meiryo", sans-serif;
+    }
+
+    .menu-body h3 {
+      margin: 0 0 8px;
+      color: var(--brown);
+      font-size: 22px;
+      line-height: 1.35;
+    }
+
+    .price {
+      color: var(--red);
+      font-size: 25px;
+      font-weight: 900;
+      margin-bottom: 10px;
+    }
+
+    .menu-body p {
+      margin: 0;
+      color: #5b3d28;
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .takeout-band {
+      background: var(--brown);
+      color: #fff;
+      margin-top: 28px;
+    }
+
+    .takeout-inner {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 48px 0;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .takeout-inner h2 {
+      margin: 0 0 8px;
+      font-size: clamp(28px, 4vw, 44px);
+      letter-spacing: .06em;
+    }
+
+    .takeout-inner p {
+      margin: 0;
+      color: #f8ead5;
+      font-family: "Yu Gothic", "Meiryo", sans-serif;
+      font-weight: 700;
+    }
+
+    .takeout-inner .btn {
+      background: #fff;
+      color: var(--brown);
+      white-space: nowrap;
+      font-family: "Yu Gothic", "Meiryo", sans-serif;
+    }
+
+    .poster-wrap {
+      display: grid;
+      grid-template-columns: .82fr 1.18fr;
+      gap: 28px;
+      align-items: start;
+    }
+
+    .poster-text,
+    .info-card,
+    .news-card {
+      background: var(--paper);
+      border-radius: var(--radius);
+      padding: 30px;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(75, 45, 26, .12);
+    }
+
+    .poster-text h3,
+    .info-card h3,
+    .news-card h3 {
+      margin: 0 0 16px;
+      color: var(--brown);
+      font-size: 26px;
+      letter-spacing: .04em;
+    }
+
+    .poster-text p {
+      margin: 0 0 18px;
+      font-family: "Yu Gothic", "Meiryo", sans-serif;
+      font-weight: 700;
+      color: #5b3d28;
+    }
+
+    .menu-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      font-family: "Yu Gothic", "Meiryo", sans-serif;
+    }
+
+    .menu-list li {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 11px 0;
+      border-bottom: 1px dashed rgba(75, 45, 26, .24);
+      font-weight: 900;
+    }
+
+    .menu-list span:last-child {
+      color: var(--red);
+      white-space: nowrap;
+    }
+
+    .notice {
+      margin-top: 22px;
+      background: var(--green);
+      color: #fff;
+      border-radius: 999px;
+      padding: 12px 18px;
+      text-align: center;
+      font-family: "Yu Gothic", "Meiryo", sans-serif;
+      font-weight: 900;
+    }
+
+    .photo-panel {
+      background: var(--paper);
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      border: 8px solid #fff;
+    }
+
+    .news-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      font-family: "Yu Gothic", "Meiryo", sans-serif;
+    }
+
+    .news-list li {
+      display: grid;
+      grid-template-columns: 130px 1fr;
+      gap: 18px;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--line);
+      font-weight: 700;
+    }
+
+    .news-date { color: var(--orange); font-weight: 900; }
+
+    .info {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .info-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-family: "Yu Gothic", "Meiryo", sans-serif;
+      font-weight: 700;
+    }
+
+    .info-table th,
+    .info-table td {
+      text-align: left;
+      vertical-align: top;
+      border-bottom: 1px solid var(--line);
+      padding: 13px 0;
+    }
+
+    .info-table th {
+      width: 7.5em;
+      color: var(--brown);
+    }
+
+    .map-placeholder {
+      min-height: 300px;
+      border-radius: 20px;
+      background:
+        linear-gradient(45deg, rgba(75, 45, 26, .08) 25%, transparent 25%),
+        linear-gradient(-45deg, rgba(75, 45, 26, .08) 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, rgba(75, 45, 26, .08) 75%),
+        linear-gradient(-45deg, transparent 75%, rgba(75, 45, 26, .08) 75%);
+      background-size: 28px 28px;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      color: var(--brown);
+      font-family: "Yu Gothic", "Meiryo", sans-serif;
+      font-weight: 900;
+      padding: 24px;
+    }
+
+    .site-footer {
+      margin-top: 40px;
+      background: var(--brown);
+      color: #fff;
+      padding: 34px 0;
+      font-family: "Yu Gothic", "Meiryo", sans-serif;
+      font-weight: 800;
+    }
+
+    .footer-inner {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .footer-inner span { color: #f7d8a6; }
+
+    @media (max-width: 900px) {
+      .nav { display: none; }
+      .hero { min-height: auto; background-position: center right; }
+      .hero-inner { padding: 56px 0; }
+      .concept-inner,
+      .poster-wrap,
+      .takeout-inner,
+      .info { grid-template-columns: 1fr; }
+      .menu-grid { grid-template-columns: 1fr; }
+      .takeout-inner .btn { justify-self: start; }
+      .hero-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-photo-card img {
+        height: 320px;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .header-inner,
+      .hero-inner,
+      .section,
+      .concept-inner,
+      .takeout-inner,
+      .footer-inner {
+        width: min(100% - 22px, 1180px);
+      }
+      .hero-copy { padding: 24px; border-radius: 22px; }
+      .btn { width: 100%; }
+      .news-list li { grid-template-columns: 1fr; gap: 2px; }
+      .menu-list li { align-items: flex-start; }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="#" class="logo">
+        <span class="logo-mark">食</span>
+        <span>
+          お食事処 サンマール
+          <small>KADOGAWA</small>
+        </span>
+      </a>
+
+      <nav class="nav">
+        <a href="#concept">こだわり</a>
+        <a href="#menu">メニュー</a>
+        <a href="#takeout">お持ち帰り</a>
+        <a href="#poster">メニュー表</a>
+        <a href="#info">店舗情報</a>
+        <a class="order-button" href="tel:0982000000">電話する</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-inner">
+        <div class="hero-copy">
+          <div class="kicker">SANMARU KADOGAWA</div>
+          <h1>できたての一皿で、<br><span>ほっとする食事時間を。</span></h1>
+          <p class="lead">
+            ちゃんぽん、チキン南蛮定食、あんかけ焼きそばなど、
+            毎日の食事にうれしい定番メニューをご用意しています。
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-main" href="#menu">人気メニューを見る</a>
+            <a class="btn btn-sub" href="#takeout">お持ち帰りを見る</a>
+          </div>
+        </div>
+
+        <div class="hero-photo-card">
+          <img src="images/131204_396.jpg" alt="チキン南蛮定食"/>
+        </div>
+      </div>
+    </section>
+
+    <section class="concept" id="concept">
+      <div class="concept-inner">
+        <div class="concept-photo">
+          <img src="images/ごはん.jpg" alt="ごはん">
+        </div>
+        <div class="concept-text">
+          <div class="kicker">CONCEPT</div>
+          <h2>気取らず、しっかり。<br>毎日食べたくなる食堂へ。</h2>
+          <p>
+            サンマールは、麺類・定食・ご飯ものまで、その日の気分に合わせて選べるお食事処です。
+            店内でのお食事はもちろん、お持ち帰りメニューもご利用いただけます。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="menu">
+      <div class="section-title">
+        <p>POPULAR MENU</p>
+        <h2>人気メニュー</h2>
+      </div>
+
+      <div class="menu-grid">
+        <article class="menu-card">
+          <div class="menu-photo">
+            <img src="images/131204_443.jpg" alt="チャンポン"/>
+          </div>
+          <div class="menu-body">
+            <h3>チャンポン</h3>
+            <div class="price">950円</div>
+            <p>野菜たっぷりで満足感のある、当店人気の一杯です。</p>
+          </div>
+        </article>
+
+        <article class="menu-card">
+          <div class="menu-photo">
+            <img src="images/131204_396.jpg" alt="チキン南蛮定食">
+          </div>
+          <div class="menu-body">
+            <h3>チキン南蛮定食</h3>
+            <div class="price">1,100円</div>
+            <p>もも肉使用。ご飯・みそ汁付きでしっかり食べたい日に。</p>
+          </div>
+        </article>
+
+        <article class="menu-card">
+          <div class="menu-photo">
+            <img src="images/131204_440.jpg" alt="あんかけ焼きそば">
+          </div>
+          <div class="menu-body">
+            <h3>あんかけ焼きそば</h3>
+            <div class="price">1,000円</div>
+            <p>具材のうま味をとじ込めた、食べごたえ抜群の一皿です。</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="takeout-band" id="takeout">
+      <div class="takeout-inner">
+        <div>
+          <h2>お持ち帰りできます</h2>
+          <p>あんかけ焼きそば、チキン南蛮、お弁当などをご家庭でもどうぞ。</p>
+        </div>
+        <a class="btn" href="tel:0982000000">電話で確認する</a>
+      </div>
+    </section>
+
+    <section class="section" id="poster">
+      <div class="section-title">
+        <p>MENU POSTER</p>
+        <h2>メニュー表</h2>
+      </div>
+
+      <div class="poster-wrap">
+        <div class="poster-text">
+          <h3>主なメニュー</h3>
+          <p>人気メニューや定番メニューを見やすくまとめています。詳しい内容は右側のメニュー表画像でもご確認いただけます。</p>
+
+          <ul class="menu-list">
+            <li><span>カレーライス</span><span>780円</span></li>
+            <li><span>かけうどん・そば</span><span>600円</span></li>
+            <li><span>日替り定食</span><span>780円</span></li>
+            <li><span>うどん＆南蛮セット</span><span>1,000円</span></li>
+            <li><span>アジフライ定食</span><span>1,300円</span></li>
+            <li><span>アジフライ＆南蛮定食</span><span>1,300円</span></li>
+            <li><span>ご飯</span><span>200円</span></li>
+            <li><span>ご飯・大盛り</span><span>+100円</span></li>
+            <li><span>みそ汁</span><span>100円</span></li>
+            <li><span>生卵 1個</span><span>50円</span></li>
+          </ul>
+
+          <div class="notice">一部を除いて保存料、合成着色料は使用しておりません。</div>
+        </div>
+
+        <div class="photo-panel">
+          <img src="images/20250629.jpg" alt="お食事処サンマール門川の人気メニューポスター">
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-title">
+        <p>NEWS</p>
+        <h2>お知らせ</h2>
+      </div>
+
+      <div class="news-card">
+        <h3>新着情報</h3>
+        <ul class="news-list">
+          <li><span class="news-date">2026.05.05</span><span>ホームページを公開しました。</span></li>
+          <li><span class="news-date">2026.05.01</span><span>お持ち帰りメニューをご利用いただけます。</span></li>
+          <li><span class="news-date">2026.04.20</span><span>メニュー表を更新しました。</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" id="info">
+      <div class="section-title">
+        <p>SHOP INFO</p>
+        <h2>店舗情報</h2>
+      </div>
+
+      <div class="info">
+        <div class="info-card">
+          <h3>お食事処 サンマール 門川</h3>
+          <table class="info-table">
+            <tr>
+              <th>住所</th>
+              <td>宮崎県東臼杵郡門川町中須３丁目</td>
+            </tr>
+            <tr>
+              <th>電話</th>
+              <td><a href="tel:0982000000">0982-00-0000</a></td>
+            </tr>
+            <tr>
+              <th>営業時間</th>
+              <td>11:00〜16:00</td>
+            </tr>
+            <tr>
+              <th>定休日</th>
+              <td>お問い合わせください</td>
+            </tr>
+          </table>
+        </div>
+
+        <div class="info-card">
+          <h3>アクセス</h3>
+          <div class="map-placeholder">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d886.0487117799597!2d131.64961472182293!3d32.46894174082094!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x354717002f4cf217%3A0xc56b06deb770d6ec!2z44GK6aOf5LqL5YemIOOCteODs-ODnuODvOODq-mWgOW3nQ!5e1!3m2!1sja!2sjp!4v1777615681267!5m2!1sja!2sjp" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div>お食事処 <span>サンマール 門川</span></div>
+      <div>© Sanmaru Kadogawa. All Rights Reserved.</div>
+    </div>
+  </footer>
+</body>
+</html>
