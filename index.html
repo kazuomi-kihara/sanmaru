@@ -238,7 +238,12 @@ section{padding:88px 24px;}
 
 /* ── INFO ── */
 .info{background:var(--paper);}
-.info-grid{display:grid;grid-template-columns:0.9fr 1.1fr;gap:36px;}
+.info-grid{
+  display:grid;
+  grid-template-columns:0.9fr 1.1fr;
+  gap:36px;
+  align-items:stretch;
+}
 .info-card{
   background:#fff;border-radius:28px;padding:36px;
   box-shadow:0 20px 48px rgba(60,35,10,.1);
@@ -248,11 +253,22 @@ section{padding:88px 24px;}
 .info-row strong{display:block;color:var(--accent);font-size:12px;letter-spacing:.14em;margin-bottom:5px;}
 .info-row span{font-size:15px;}
 .map-ph{
-  min-height:360px;border-radius:28px;
+  height:100%;
+  min-height:360px;
+  border-radius:28px;
   background:linear-gradient(135deg,#e2d4bd,#f5ead5);
-  display:grid;place-items:center;text-align:center;
-  border:1px solid var(--line);padding:32px;color:var(--sub);
-  font-size:14px;line-height:2;
+  border:1px solid var(--line);
+  padding:0;
+  overflow:hidden;
+  box-shadow:0 20px 48px rgba(60,35,10,.1);
+}
+
+.map-ph iframe{
+  width:100% !important;
+  height:100% !important;
+  min-height:360px;
+  border:0;
+  display:block;
 }
 .map-ph strong{font-size:16px;color:var(--ink);display:block;margin-bottom:8px;}
 
@@ -462,10 +478,13 @@ footer strong{color:#f9d080;display:block;font-size:15px;margin-bottom:6px;
         </div>
       </div>
       <div class="map-ph reveal">
-        <div>
-          <strong>📍 アクセスマップ</strong>
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d886.0487117799597!2d131.64961472182293!3d32.46894174082094!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x354717002f4cf217%3A0xc56b06deb770d6ec!2z44GK6aOf5LqL5YemIOOCteODs-ODnuODvOODq-mWgOW3nQ!5e1!3m2!1sja!2sjp!4v1777615681267!5m2!1sja!2sjp" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div>
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d886.0487117799597!2d131.64961472182293!3d32.46894174082094!2m3!1f0!2f0!3f0!2m3!1i1024!2i768!4f13.1!3m3!1m2!1s0x354717002f4cf217%3A0xc56b06deb770d6ec!2z44GK6aOf5LqL5YemIOOCteODs-ODnuODvOODq-mWgOW3nQ!5e1!3m2!1sja!2sjp!4v1777615681267!5m2!1sja!2sjp"
+          class="google-map"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
       </div>
     </div>
   </div>
