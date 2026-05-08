@@ -542,10 +542,9 @@
 
     .poster-wrap {
       display: grid;
-      grid-template-columns: minmax(440px, 0.95fr) minmax(420px, 0.85fr);
-      gap: 36px;
-      align-items: center;
-      justify-content: center;
+      grid-template-columns: 0.86fr 1.14fr;
+      gap: 28px;
+      align-items: start;
     }
 
     .poster-text,
@@ -556,12 +555,6 @@
       padding: 30px;
       box-shadow: var(--shadow);
       border: 1px solid rgba(61, 38, 23, 0.10);
-    }
-
-    .poster-text {
-      width: 100%;
-      max-width: 520px;
-      justify-self: end;
     }
 
     .poster-text h3,
@@ -607,14 +600,6 @@
       overflow: hidden;
       box-shadow: var(--shadow);
       border: 8px solid #fff;
-      width: 100%;
-      max-width: 500px;
-      justify-self: start;
-    }
-
-    .photo-panel img {
-      width: 100%;
-      height: auto;
     }
 
     .mascot-area {
@@ -758,12 +743,6 @@
         grid-template-columns: 1fr;
       }
 
-      .poster-text,
-      .photo-panel {
-        max-width: 560px;
-        justify-self: center;
-      }
-
       .hero {
         padding-top: 42px;
       }
@@ -842,10 +821,6 @@
       .poster-text,
       .info-card {
         padding: 24px;
-      }
-
-      .photo-panel {
-        max-width: 100%;
       }
 
       .nobr {
