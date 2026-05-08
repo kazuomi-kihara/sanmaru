@@ -617,79 +617,6 @@
       height: auto;
     }
 
-
-    .stores-section {
-      background:
-        radial-gradient(circle at top right, rgba(241, 90, 37, 0.10), transparent 30rem),
-        linear-gradient(180deg, #ffffff 0%, var(--cream) 100%);
-      border-top: 1px solid rgba(241, 90, 37, 0.10);
-    }
-
-    .store-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 18px;
-    }
-
-    .store-card {
-      background: #fff;
-      border-radius: 22px;
-      padding: 24px 20px;
-      border: 2px solid rgba(241, 90, 37, 0.12);
-      box-shadow: 0 12px 28px rgba(88, 46, 16, 0.09);
-      transition: 0.22s ease;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .store-card::before {
-      content: "";
-      position: absolute;
-      inset: 0 0 auto 0;
-      height: 6px;
-      background: var(--main);
-    }
-
-    .store-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 18px 38px rgba(88, 46, 16, 0.14);
-    }
-
-    .store-card .store-label {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 28px;
-      padding: 0 10px;
-      border-radius: 999px;
-      background: var(--yellow);
-      color: var(--main-dark);
-      font-size: 12px;
-      font-weight: 900;
-      margin-bottom: 12px;
-    }
-
-    .store-card h3 {
-      color: var(--brown);
-      font-size: 22px;
-      line-height: 1.35;
-      margin-bottom: 8px;
-    }
-
-    .store-card p {
-      color: var(--muted);
-      font-size: 14px;
-      font-weight: 700;
-      margin-bottom: 14px;
-    }
-
-    .store-card .store-link-text {
-      color: var(--main);
-      font-weight: 900;
-      font-size: 14px;
-    }
-
-
     .mascot-area {
       background: var(--brown);
       color: #fff;
@@ -859,10 +786,6 @@
         grid-template-columns: 1fr;
       }
 
-      .store-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
       .takeout-grid {
         grid-template-columns: repeat(2, 1fr);
       }
@@ -915,10 +838,6 @@
         grid-template-columns: 1fr;
       }
 
-      .store-grid {
-        grid-template-columns: 1fr;
-      }
-
       .takeout-message,
       .poster-text,
       .info-card {
@@ -955,7 +874,6 @@
         <a href="#takeout">お持ち帰り</a>
         <a href="#poster">メニュー表</a>
         <a href="#access">店舗情報</a>
-        <a href="#stores">他店舗</a>
       </nav>
     </div>
   </header>
@@ -1140,46 +1058,6 @@
             loading="lazy"
             referrerpolicy="no-referrer-when-downgrade">
           </iframe>
-        </div>
-      </div>
-    </section>
-
-    <section class="stores-section" id="stores">
-      <div class="section">
-        <div class="section-title">
-          <span class="en">OTHER STORES</span>
-          <h2>サンマールグループ店</h2>
-          <p>各店舗のページは準備中です。公開後、こちらから確認できるようになります。</p>
-        </div>
-
-        <div class="store-grid">
-          <a class="store-card" href="#" aria-label="サンマール延岡のページは準備中です">
-            <span class="store-label">準備中</span>
-            <h3>サンマール延岡</h3>
-            <p>店舗ページを準備しています。</p>
-            <span class="store-link-text">公開後にリンクします</span>
-          </a>
-
-          <a class="store-card" href="#" aria-label="サンマールセンターのページは準備中です">
-            <span class="store-label">準備中</span>
-            <h3>サンマールセンター</h3>
-            <p>店舗ページを準備しています。</p>
-            <span class="store-link-text">公開後にリンクします</span>
-          </a>
-
-          <a class="store-card" href="#" aria-label="サンマール古川のページは準備中です">
-            <span class="store-label">準備中</span>
-            <h3>サンマール古川</h3>
-            <p>店舗ページを準備しています。</p>
-            <span class="store-link-text">公開後にリンクします</span>
-          </a>
-
-          <a class="store-card" href="#" aria-label="サンマール恵比須のページは準備中です">
-            <span class="store-label">準備中</span>
-            <h3>サンマール恵比須</h3>
-            <p>店舗ページを準備しています。</p>
-            <span class="store-link-text">公開後にリンクします</span>
-          </a>
         </div>
       </div>
     </section>
