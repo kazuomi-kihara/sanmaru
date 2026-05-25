@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>お食事処 サンマール 門川｜あんかけ焼きそば・定食・お持ち帰り</title>
-  <meta name="description" content="お食事処 サンマール門川のホームページ。ちゃんぽん、あんかけ焼きそば、チキン南蛮定食など、しっかり食べたい日にうれしいメニューとお持ち帰りをご紹介します。" />
+  <title>お食事処 サンマール 門川｜改善サンプル</title>
+  <meta name="description" content="お食事処 サンマール門川の改善サンプル。ガッツリ食べたい方、お持ち帰りを利用したい方へ、写真付きメニューと利用しやすさを分かりやすく伝えます。" />
 
   <style>
     :root {
@@ -265,7 +265,8 @@
     .hero-photo img {
       width: 100%;
       height: 520px;
-      object-fit: cover;
+      object-fit: contain;
+      background: #fff8eb;
     }
 
     .hero-chip {
@@ -818,9 +819,77 @@
       margin-bottom: 4px;
     }
 
+    .sample-note {
+      width: min(1120px, calc(100% - 32px));
+      margin: 14px auto 0;
+      padding: 10px 14px;
+      border-radius: 12px;
+      background: #fff;
+      color: var(--muted);
+      border: 1px solid rgba(241, 90, 37, 0.18);
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .use-scene-list {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .use-scene {
+      background: rgba(255, 255, 255, 0.18);
+      border: 1px solid rgba(255, 255, 255, 0.34);
+      border-radius: 14px;
+      padding: 12px;
+      font-weight: 900;
+      line-height: 1.45;
+    }
+
+    .use-scene small {
+      display: block;
+      color: #fff7ef;
+      font-size: 12px;
+      font-weight: 800;
+      margin-top: 2px;
+    }
+
+    .takeout-card-body small {
+      display: block;
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 1.35;
+      margin-top: 4px;
+      font-weight: 800;
+    }
     @media (max-width: 960px) {
+      .header-inner {
+        flex-wrap: wrap;
+        align-items: flex-start;
+        padding: 10px 0 12px;
+      }
+
       .nav {
+        display: flex;
+        width: 100%;
+        overflow-x: auto;
+        gap: 10px;
+        padding: 0 0 4px;
+        scrollbar-width: none;
+      }
+
+      .nav::-webkit-scrollbar {
         display: none;
+      }
+
+      .nav a {
+        flex: 0 0 auto;
+        padding: 7px 12px;
+        border-radius: 999px;
+        background: #fff8eb;
+        border: 1px solid rgba(241, 90, 37, 0.18);
+        color: var(--brown);
       }
 
       .hero-inner,
@@ -886,7 +955,16 @@
       }
 
       .site-header {
-        position: static;
+        position: sticky;
+      }
+
+      .sample-note {
+        width: min(100% - 22px, 1120px);
+        margin-top: 10px;
+      }
+
+      .use-scene-list {
+        grid-template-columns: 1fr;
       }
 
       .logo {
@@ -961,6 +1039,7 @@
   </header>
 
   <main id="top">
+    <div class="sample-note">比較用サンプル：現行の雰囲気を残し、スマホ導線と持ち帰り利用シーンを少し補強したページです。</div>
     <section class="hero">
       <div class="hero-inner">
         <div class="hero-copy">
@@ -972,15 +1051,20 @@
             お持ち帰りもできます。
           </p>
 
+
+          <div class="entry-note">
+            併設店舗ですが、お食事のみのご利用も歓迎しています。<br>
+            はじめての方も、どうぞ安心してお入りください。
+          </div>
           <div class="hero-actions">
             <a href="#menu" class="btn btn-main">人気メニューを見る</a>
             <a href="#takeout" class="btn btn-sub">お持ち帰りを見る</a>
           </div>
 
           <ul class="hero-points">
-            <li>11:00〜18:00営業</li>
+            <li>11:00〜18:00（LO17:30）</li>
             <li>お持ち帰りOK</li>
-            <li>満足できる一品</li>
+            <li>お食事のみ歓迎</li>
           </ul>
         </div>
 
@@ -1044,7 +1128,12 @@
           <div class="takeout-message">
             <div class="en">TAKE OUT</div>
             <h2><span class="nobr">夕食のおかずに</span><br><span class="nobr">お持ち帰りできます。</span></h2>
-            <p>あんかけ焼きそば、チキン南蛮、お弁当など、できたてのおいしさをご家庭でもどうぞ。</p>
+            <p>夕食のおかず、一品追加、家族分のお弁当に。できたてのおいしさをご家庭でもどうぞ。</p>
+            <div class="use-scene-list">
+              <div class="use-scene">夕食のおかずに<small>あと一品ほしい時に</small></div>
+              <div class="use-scene">料理をしない日に<small>できたてをそのまま</small></div>
+              <div class="use-scene">しっかり昼ごはん<small>ガッツリ食べたい日に</small></div>
+            </div>
           </div>
 
           <div class="takeout-menu-panel">
@@ -1052,19 +1141,19 @@
             <div class="takeout-grid">
               <article class="takeout-card">
                 <img src="images/131204_440.jpg" alt="あんかけ焼きそば" />
-                <div class="takeout-card-body">あんかけ焼きそば<span>1,000円</span></div>
+                <div class="takeout-card-body">あんかけ焼きそば<span>1,000円</span><small>夕食のおかずにも人気</small></div>
               </article>
               <article class="takeout-card">
                 <img src="images/131204_396.jpg" alt="チキン南蛮" />
-                <div class="takeout-card-body">チキン南蛮<span>1,000円</span></div>
+                <div class="takeout-card-body">チキン南蛮<span>1,000円</span><small>ご飯が進む定番おかず</small></div>
               </article>
               <article class="takeout-card">
                 <img src="images/IMG_4822.JPG" alt="お弁当" />
-                <div class="takeout-card-body">お弁当<span>1,000円</span></div>
+                <div class="takeout-card-body">お弁当<span>1,000円</span><small>忙しい日の食事に</small></div>
               </article>
               <article class="takeout-card">
                 <img src="images/弁当箱.jpg" alt="お持ち帰り容器" />
-                <div class="takeout-card-body">容器代<span>50円</span></div>
+                <div class="takeout-card-body">容器代<span>50円</span><small>お持ち帰り用</small></div>
               </article>
             </div>
           </div>
@@ -1125,8 +1214,8 @@
       <div class="info">
         <div class="info-card">
           <h3>お食事処 サンマール 門川</h3>
-          <div class="info-row"><strong>住所</strong><span>宮崎県東臼杵郡門川町中須３丁目</span></div>
-          <div class="info-row"><strong>営業時間</strong><span>11:00〜18:00</span></div>
+          <div class="info-row"><strong>住所</strong><span>〒889-0612 宮崎県東臼杵郡門川町中須3-5-2</span></div>
+          <div class="info-row"><strong>営業時間</strong><span>11:00〜18:00（ラストオーダー17:30）</span></div>
           <div class="info-row"><strong>定休日</strong><span>西の丸門川店がお休みの日は、<br>サンマールもお休みです</span></div>
           <div class="info-row"><strong>駐車場</strong><span>西の丸門川店の駐車場をお使いください</span></div>
           <div style="margin-top: 24px;">
@@ -1134,12 +1223,7 @@
         </div>
 
         <div class="map-box">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d886.0487117799597!2d131.64961472182293!3d32.46894174082094!2m3!1f0!2f0!3f0!2m3!1i1024!2i768!4f13.1!3m3!1m2!1s0x354717002f4cf217%3A0xc56b06deb770d6ec!2z44GK6aOf5LqL5YemIOOCteODs-ODnuODvOODq-mWgOW3nQ!5e1!3m2!1sja!2sjp!4v1777615681267!5m2!1sja!2sjp"
-            allowfullscreen=""
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade">
-          </iframe>
+          <iframe src="https://www.google.com/maps?q=%E3%81%8A%E9%A3%9F%E4%BA%8B%E5%87%A6%20%E3%82%B5%E3%83%B3%E3%83%9E%E3%83%BC%E3%83%AB%20%E9%96%80%E5%B7%9D%20%E5%AE%AE%E5%B4%8E%E7%9C%8C%E6%9D%B1%E8%87%BC%E6%9D%B5%E9%83%A1%E9%96%80%E5%B7%9D%E7%94%BA%E4%B8%AD%E9%A0%883-5-2&output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
       </div>
     </section>
@@ -1153,40 +1237,20 @@
         </div>
 
         <div class="store-grid">
-          <a class="store-card" href="#" aria-label="サンマール延岡のページは準備中です">
-            <span class="store-label">準備中</span>
-            <h3>サンマール延岡</h3>
-            <p>店舗ページを準備しています。</p>
-            <span class="store-link-text">公開後にリンクします</span>
-          </a>
+          <a class="store-card" href="nobeoka.html" aria-label="サンマール延岡の店舗ページ"><span class="store-label">店舗ページ</span><h3>サンマール延岡</h3><p>店舗ページをご覧いただけます。</p><span class="store-link-text">詳しく見る</span></a>
 
-          <a class="store-card" href="#" aria-label="サンマールセンターのページは準備中です">
-            <span class="store-label">準備中</span>
-            <h3>サンマールセンター</h3>
-            <p>店舗ページを準備しています。</p>
-            <span class="store-link-text">公開後にリンクします</span>
-          </a>
+          <a class="store-card" href="center.html" aria-label="サンマールセンターの店舗ページ"><span class="store-label">店舗ページ</span><h3>サンマールセンター</h3><p>店舗ページをご覧いただけます。</p><span class="store-link-text">詳しく見る</span></a>
 
-          <a class="store-card" href="#" aria-label="サンマール古川のページは準備中です">
-            <span class="store-label">準備中</span>
-            <h3>サンマール古川</h3>
-            <p>店舗ページを準備しています。</p>
-            <span class="store-link-text">公開後にリンクします</span>
-          </a>
+          <a class="store-card" href="furukawa.html" aria-label="サンマール古川の店舗ページ"><span class="store-label">店舗ページ</span><h3>サンマール古川</h3><p>店舗ページをご覧いただけます。</p><span class="store-link-text">詳しく見る</span></a>
 
-          <a class="store-card" href="#" aria-label="サンマール恵比須のページは準備中です">
-            <span class="store-label">準備中</span>
-            <h3>サンマール恵比須</h3>
-            <p>店舗ページを準備しています。</p>
-            <span class="store-link-text">公開後にリンクします</span>
-          </a>
+          <a class="store-card" href="ebisu.html" aria-label="サンマール恵比須の店舗ページ"><span class="store-label">店舗ページ</span><h3>サンマール恵比須</h3><p>店舗ページをご覧いただけます。</p><span class="store-link-text">詳しく見る</span></a>
         </div>
       </div>
     </section>
 
     <section class="cta">
       <h2>ご来店・お持ち帰りを<br>お待ちしています</h2>
-      <p>お昼ごはんにも、夕食のおかずにも。お気軽にご利用ください。</p>
+      <p>お昼ごはんにも、夕食のおかずにも。お食事のみ・お持ち帰りだけのご利用も歓迎していますので、安心してお立ち寄りください。</p>
     </section>
   </main>
 
@@ -1196,3 +1260,13 @@
   </footer>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
